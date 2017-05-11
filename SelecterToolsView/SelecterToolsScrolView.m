@@ -49,7 +49,6 @@
         _btnArr = [NSMutableArray array];
         _currIdx = [strIndex integerValue];
         for (int i = 0; i<titleArr.count; i++) {
-            
             UIButton *titleBtn = [[UIButton alloc]initWithFrame:CGRectMake(i*imageV.size.width,0, imageV.size.width,imageV.size.height)];
             titleBtn.tag = i;
             [titleBtn setBackgroundImage:[UIImage imageNamed:@"sqjr_list_h5header_1"] forState:UIControlStateNormal];
@@ -69,19 +68,16 @@
         _bottomScrLine.center = CGPointMake(_currentBtn.center.x, _bottomScrLine.center.y);
         _bottomScrLine.backgroundColor = [UIColor whiteColor];
         [self addSubview:_bottomScrLine];
-        
         self.contentSize = CGSizeMake(titleArr.count*imageV.size.width, imageV.size.height);
         self.showsHorizontalScrollIndicator = NO;
         self.showsVerticalScrollIndicator = NO;
         self.layer.borderWidth = 0.5;
         self.layer.borderColor = [UIColor lightGrayColor].CGColor;
         self.btnClick = btnClick;
-        
         [self updateSelecterToolsIndex:self.currIdx];
     }
     return self;
 }
-
 
 -(void)updateSelecterToolsIndex:(NSInteger )index
 {
@@ -96,27 +92,20 @@
 
 -(void)changeSelectBtn:(UIButton *)btn
 {
-    
     _previousBtn = _currentBtn;
     _currentBtn = btn;
     _previousBtn.selected = NO;
     _currentBtn.selected = YES;
-    
     [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         _bottomScrLine.center = CGPointMake(_currentBtn.center.x, _bottomScrLine.center.y);
-
     } completion:^(BOOL finished) {
         
     }];
-    
-    
     if (_currentBtn.center.x<WIDTH/2) {
-        
         [self setContentOffset:CGPointMake(0, 0) animated:YES];
     }else if (_currentBtn.center.x>self.contentSize.width-WIDTH/2)
     {
         [self setContentOffset:CGPointMake(self.contentSize.width-WIDTH, 0) animated:YES];
-
     }else
     {
         [self setContentOffset:CGPointMake(btn.center.x-WIDTH/2, 0) animated:YES];
@@ -124,14 +113,5 @@
     }
     
 }
-
-//
-//-(CGFloat)getTitleContentWidth:(NSString *)title
-//{
-//   CGRect rect = [title boundingRectWithSize:CGSizeMake(WIDTH, 30) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:TitleFont]} context:nil];
-//    return rect.size.width;
-//}
-
-
 
 @end

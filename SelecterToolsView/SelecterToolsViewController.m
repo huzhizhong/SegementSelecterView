@@ -34,10 +34,8 @@
     self.title = @"SegementSelecterView";
     
     self.view.backgroundColor = [UIColor whiteColor];
-    _titleArr = @[@"卡片1➡️",@"卡片2➡️",@"卡片3➡️",@"卡片4➡️",@"卡片5➡️",@"卡片6➡️",@"卡片7➡️" ];
-
+    _titleArr = @[@"卡片1➡️",@"卡片2➡️",@"卡片3➡️",@"卡片4➡️",@"卡片5➡️",@"卡片6➡️",@"卡片7➡️" ];    
     _urlArr = @[@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com",@"http://baidu.com"];
-    
     _vcArr = [[NSMutableArray alloc] init];
     for (int i = 0; i < 7 ; i++) {
         TestViewController *vc = [[TestViewController alloc]init];
@@ -47,9 +45,7 @@
     }
     [self createSelecterToolsSrc:@"4"];
     [self createContentVCSrc:@"4"];
-
 }
-
 
 -(void)createSelecterToolsSrc:(NSString *)str
 {
@@ -81,7 +77,6 @@
     [_contentScrView updateVCViewFromIndex:index];
 }
 
-
 -(void)dealloc
 {
     NSLog(@"dealloc");
@@ -91,14 +86,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

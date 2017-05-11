@@ -17,9 +17,7 @@ typedef enum : NSUInteger {
 
 @interface SelecterToolsScrolView : UIScrollView
 
-
 -(void)updateSelecterToolsIndex:(NSInteger )index;
-
 
 -(instancetype)initWithSeleterConditionTitleArr:(NSArray *)titleArr selectIndex:(NSString *)strIndex andBtnBlock:(BtnClick)btnClick;
 
